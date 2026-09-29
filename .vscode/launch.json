@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Linux: Debug replay",
+            "type": "gdb",
+            "request": "launch",
+            "target": "${workspaceFolder}/build/debug/rm_auto_aim_replay",
+            "cwd": "${workspaceFolder}",
+            "valuesFormatting": "parseText",
+            "preLaunchTask": "Build: replay debug"
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "XRobot: setup",
+            "type": "shell",
+            "command": "xrobot",
+            "args": [
+                "setup"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "windows": {
+                "command": "Write-Host 'Linux BSP tasks run in a VS Code Remote-SSH window on the Linux target; open this repository there.'; exit 1",
+                "args": []
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "XRobot: select replay",
+            "type": "shell",
+            "command": "xrobot",
+            "args": [
+                "gen",
+                "-c",
+                "User/xrobot.yaml"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "windows": {
+                "command": "Write-Host 'Linux BSP tasks run in a VS Code Remote-SSH window on the Linux target; open this repository there.'; exit 1",
+                "args": []
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: configure debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "windows": {
+                "command": "Write-Host 'Linux BSP tasks run in a VS Code Remote-SSH window on the Linux target; open this repository there.'; exit 1",
+                "args": []
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: build debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "debug",
+                "--target",
+                "rm_auto_aim_replay"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "windows": {
+                "command": "Write-Host 'Linux BSP tasks run in a VS Code Remote-SSH window on the Linux target; open this repository there.'; exit 1",
+                "args": []
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build: replay debug",
+            "dependsOn": [
+                "XRobot: select replay",
+                "CMake: build debug"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}
