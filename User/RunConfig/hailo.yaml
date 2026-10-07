@@ -24,7 +24,7 @@ modules:
       - settings:
           camera_name: "gimbal"
           model_dir: "armor-models/model_private"
-          detector_model: "armor_det_v7.onnx"
+          detector_model: "armor_det_v7.hef"
           number_model: "armor_num_v1.onnx"
           openvino_device: "CPU"
           min_confidence: 0.4F

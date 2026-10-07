@@ -1,7 +1,7 @@
 xrobot: 1.0.0
 modules:
   - QDU-Robomaster/CaptureFileCamera@same-or-dev
-  - QDU-Robomaster/CameraFrameSync@same-or-dev
   - QDU-Robomaster/ArmorDetector@same-or-dev
   - QDU-Robomaster/ArmorTracker@same-or-dev
   - QDU-Robomaster/Aimer@same-or-dev
+  - QDU-Robomaster/VisionPreview@same-or-dev

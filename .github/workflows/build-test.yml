@@ -40,13 +40,9 @@ jobs:
         else
           python3 -m pip install "xrobot==$pin"
         fi
-    - name: Install Linux build dependencies
-      run: |
-        apt-get update
-        apt-get install -y --no-install-recommends libgpiod-dev
     - name: Check config layout
       run: xrobot format --check
-    - name: Resolve locked Modules and check the config
+    - name: Resolve locked Modules and check every config
       run: xrobot setup --frozen --context-ref "$XR_CONTEXT_REF" --release-ref "$XR_RELEASE_REF"
     - name: Detect OpenVINO
       shell: bash
@@ -71,5 +67,11 @@ jobs:
           args+=("-DOpenVINO_DIR=$OPENVINO_DIR")
         fi
         cmake --preset release -DBUILD_TESTING=OFF "${args[@]}"
-    - name: Build
-      run: cmake --build --preset release --target rm_auto_aim_replay -j2
+    - name: Build every product
+      shell: bash
+      run: |
+        set -euo pipefail
+        for config in User/xrobot.yaml User/RunConfig/*.yaml; do
+          xrobot gen -c "$config"
+          cmake --build --preset release --target rm_auto_aim_replay -j2
+        done
