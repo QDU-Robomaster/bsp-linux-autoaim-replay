@@ -60,6 +60,17 @@ modules:
             max_angle_rad: 0.3
             temp_lost_scale: 0.35
             switch_margin: 0.25
+          # 回放的几何来自录像，不控制视角 / Replay geometry comes from the recording;
+          # the view is not controlled
+          view:
+            enabled: false
+            enter_m: 6.0
+            exit_m: 5.0
+            lost_s: 0.1
+            recenter_frac: 0.25
+            edge_margin: 0.1
+            min_move_s: 0.1
+      - sync: nullptr
   - module: QDU-Robomaster/Aimer
     id: aimer
     args:
