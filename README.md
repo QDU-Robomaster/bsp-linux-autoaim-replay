@@ -33,7 +33,7 @@ cmake --build --preset release --target rm_auto_aim_replay
 
 ```bash
 git clone https://github.com/QDU-Robomaster/armor-models.git
-armor-models/scripts/fetch_model.sh det-v4.0 armor-models/model_private
+armor-models/scripts/fetch_model.sh det-v7.0 armor-models/model_private
 armor-models/scripts/fetch_model.sh num-v1.0 armor-models/model_private
 ```
 
